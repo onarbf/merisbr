@@ -1,5 +1,7 @@
+
 import Link from "next/link"
 import { getProjects } from "../../sanity/lib/sanity-utils"
+import { MasonryProjects } from "./components/MasonryProjects"
 
 export default async function Home() {
   const projects = await getProjects()
@@ -7,14 +9,9 @@ export default async function Home() {
 
   return (
     <main >
-      <div>{
-        projects.map((project)=>(
-          <div key={project._id}>
-            <Link href={`/project/${project.slug}`}>{project.name}</Link>
-            
-          </div>
-        ))
-        }</div>
+      <div>
+        <MasonryProjects projects={projects}/>
+      </div>
     </main>
   )
 }
