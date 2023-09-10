@@ -13,7 +13,7 @@ export async function getProjects(): Promise<Project[]>{
             url,
             content
 
-        }`
+        }`,{cache: 'force-cache'}
     )
 }
 
@@ -29,6 +29,6 @@ export async function getProject({slug}: {slug: string}):  Promise<Project>{
             url,
             content
 
-        }`,{slug}
+        }`,{slug,cache: 'force-cache'}
     )
 }

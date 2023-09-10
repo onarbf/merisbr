@@ -2,6 +2,7 @@
 import PortableTextConfiguration from "../../../../../sanity/lib/portable-text-configuration";
 import { getProject } from "../../../../../sanity/lib/sanity-utils";import { PortableText } from "@portabletext/react";
 
+export const dynamic = 'force-dynamic'
 
 type Props = {
     params: {slug: string}
