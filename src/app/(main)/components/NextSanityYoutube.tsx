@@ -2,6 +2,7 @@
 
 export function NextSanityYoutube({ value }: any) {
     const videoID = value.videoID;
+    console.log('youtube videoID',videoID)
     return (
         <div>
         {videoID &&

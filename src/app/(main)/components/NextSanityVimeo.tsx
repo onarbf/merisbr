@@ -2,6 +2,7 @@
 
 export function NextSanityVimeo({ value }: any) {
     const videoID = value.videoID;
+    console.log('vimeo videoID',videoID)
     return (
         <div>
         {videoID &&
