@@ -1,11 +1,11 @@
 'use client'
 import {useNextSanityImage} from 'next-sanity-image'
 import Image from 'next/image';
-import { client } from '../../../sanity/lib/client';
+import { client } from '../../../../sanity/lib/client';
 
 
 
-export const SanityImage = ({ asset }: any) => {
+export const NextSanityImage = ({ asset }: any) => {
   const imageProps: any = useNextSanityImage(client, asset);
 
   if (!imageProps) return null;

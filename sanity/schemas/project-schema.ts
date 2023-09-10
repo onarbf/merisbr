@@ -1,3 +1,6 @@
+
+
+
 const project = {
     name: 'project',
     title: 'Projects',
@@ -8,6 +11,30 @@ const project = {
             title: 'Name',
             type: 'string',
             validation: (Rule: any) => Rule.required().min(10).max(80)
+        },
+        {
+          title: "Categories",
+          description: "Choose some tags that identify your project",
+          name: "categories",
+          type: "array",
+          of: [{
+            name: 'category',
+            title: 'Category',
+            type: 'string'
+          }]
+        },
+        {
+          title: "Type of post",
+          description: "Pick the format of your post",
+          name: "type",
+          type: "string",
+          options: {
+            list: [
+              { title: "Illustration", value: "Illustration" },
+              { title: "Motion", value: "Motion" },
+            ],
+          },
+          validation: (Rule: any) => Rule.required(),
         },
         {
             name: "slug",
@@ -30,36 +57,38 @@ const project = {
             validation: (Rule: any) => Rule.required()
         },
         {
-            name:'url',
-            title:'url',
-            type: 'url'
-        },
-        {
             name:'content',
             title: 'Content',
             type: 'array',
             of: [
+              {
+                type: 'image',
+                fields: [
+                  {
+                    type: 'text',
+                    name: 'alt',
+                    title: 'Alternative text',
+                    description: `Some of your visitors cannot see images, 
+                      be they blind, color-blind, low-sighted; 
+                      alternative text is of great help for those 
+                      people that can rely on it to have a good idea of 
+                      what\'s on your page.`,
+                    options: {
+                      isHighlighted: true
+                    }
+                  }
+                ]
+              },
                 {
                   type: 'block'
                 },
                 {
-                  type: 'image',
-                  fields: [
-                    {
-                      type: 'text',
-                      name: 'alt',
-                      title: 'Alternative text',
-                      description: `Some of your visitors cannot see images, 
-                        be they blind, color-blind, low-sighted; 
-                        alternative text is of great help for those 
-                        people that can rely on it to have a good idea of 
-                        what\'s on your page.`,
-                      options: {
-                        isHighlighted: true
-                      }
-                    }
-                  ]
-                }
+                  type: 'vimeo'
+                },
+                {
+                  type: 'youtube'
+                },
+                
               ]
         }
     ]

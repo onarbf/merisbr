@@ -1,6 +1,6 @@
 
 import Link from "next/link"
-import { getProjects } from "../../sanity/lib/sanity-utils"
+import { getProjects } from "../../../sanity/lib/sanity-utils"
 import { MasonryProjects } from "./components/MasonryProjects"
 
 export default async function Home() {
