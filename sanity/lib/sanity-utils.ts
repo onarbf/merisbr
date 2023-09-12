@@ -10,8 +10,7 @@ export async function getProjects(): Promise<Project[]>{
             name,
             "slug": slug.current,
             "image": image.asset->url,
-            url,
-            content
+            projectType
 
         }`,{cache: 'force-cache'}
     )
@@ -26,6 +25,7 @@ export async function getProject({slug}: {slug: string}):  Promise<Project>{
             name,
             "slug": slug.current,
             "image": image.asset->url,
+            projectType,
             url,
             content
 

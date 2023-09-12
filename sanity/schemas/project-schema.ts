@@ -24,17 +24,22 @@ const project = {
           }]
         },
         {
-          title: "Type of post",
-          description: "Pick the format of your post",
-          name: "type",
-          type: "string",
-          options: {
-            list: [
-              { title: "Illustration", value: "Illustration" },
-              { title: "Motion", value: "Motion" },
-            ],
-          },
-          validation: (Rule: any) => Rule.required(),
+          name:"projectType",
+          title: 'Project type',
+          type: 'array',
+          of: [{
+            title: "Type of Project",
+            description: "Pick the format  or formats of your project",
+            name: "type",
+            type: "string",
+            options: {
+              list: [
+                { title: "Illustration", value: "Illustration" },
+                { title: "Motion", value: "Motion" },
+              ],
+            },
+            validation: (Rule: any) => Rule.required(),
+          }]
         },
         {
             name: "slug",
@@ -55,6 +60,12 @@ const project = {
             type: 'string'}
             ],
             validation: (Rule: any) => Rule.required()
+        },
+        {
+          name:"highlighted",
+          title: 'Highlighted project',
+          description: "Put in true if this project is highlighted",
+          type: 'boolean',
         },
         {
             name:'content',
