@@ -13,7 +13,7 @@ const GlobalContext = createContext<ContextProps>({
 });
 
 export const GlobalContextProvider = ({ children }: any) => {
-  const [categories, setCategories] = useState<string[]>(['Illustration','Motion']); // Especifica el tipo como string[]
+  const [categories, setCategories] = useState<string[]>([]); // Especifica el tipo como string[]
 
   return (
     <GlobalContext.Provider value={{ categories, setCategories }}>
