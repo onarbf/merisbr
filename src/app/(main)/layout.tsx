@@ -4,6 +4,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 
 import { GlobalContextProvider } from './context/store'
+import { Footer } from './components/Footer'
 export const metadata: Metadata = {
   title: 'María Barriga',
   description: 'My portfolio',
@@ -21,6 +22,7 @@ export default function RootLayout({
       <GlobalContextProvider>
           <Navbar/>
           {children}
+          <Footer/>
         </GlobalContextProvider>
         </body>
     </html>

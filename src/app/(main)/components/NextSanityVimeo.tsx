@@ -2,12 +2,11 @@
 
 export function NextSanityVimeo({ value }: any) {
     const videoID = value.videoID;
-    console.log('vimeo videoID',videoID)
     return (
         <div>
         {videoID &&
-        <div>
-            <iframe src={`https://player.vimeo.com/video/${videoID}`} width="640" height="365" frameBorder="0" allow="autoplay; fullscreen; picture-in-picture" allowFullScreen></iframe>
+        <div className="video-container">
+            <iframe src={`https://player.vimeo.com/video/${videoID}`} allowFullScreen ></iframe>
         </div>
         }
         </div>

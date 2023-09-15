@@ -13,9 +13,21 @@ const project = {
             validation: (Rule: any) => Rule.required().min(10).max(80)
         },
         {
+          name: "description",
+          title: 'Description',
+          type: 'string',
+          validation: (Rule: any) => Rule.required().min(10).max(80)
+        },
+        {
+          name: "client",
+          title: "Client",
+          description: "Choose the client of this project (Optional)",
+          type: "string"
+        },
+        {
+          name: "categories",
           title: "Categories",
           description: "Choose some tags that identify your project",
-          name: "categories",
           type: "array",
           of: [{
             name: 'category',
@@ -61,6 +73,17 @@ const project = {
             ],
             validation: (Rule: any) => Rule.required()
         },
+        {
+          name: 'imageHeader',
+          title: 'Image header',
+          type: 'image',
+          options: {hotspot: 'true'},
+          fields: [
+              {name:'alt',
+              title: 'Alt',
+          type: 'string'}
+          ]
+      },
         {
           name:"highlighted",
           title: 'Highlighted project',

@@ -2,7 +2,7 @@
 import Link from "next/link"
 import { getProjects } from "../../../sanity/lib/sanity-utils"
 import { MasonryProjects } from "./components/MasonryProjects"
-import Footer from "./components/Footer"
+import {MarqueeFooter} from "./components/MarqueeFooter"
 
 export default async function Home() {
   const projects = await getProjects()
@@ -12,7 +12,7 @@ export default async function Home() {
     <main >
       <div>
         <MasonryProjects projects={projects}/>
-        <Footer projects={projects}/>
+        <MarqueeFooter projects={projects}/>
       </div>
     </main>
   )

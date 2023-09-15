@@ -1,13 +1,18 @@
 'use client'
 import Link from "next/link";
-import { useEffect } from "react";
 import { useGlobalContext } from "../context/store";
+import { useRouter } from 'next/navigation';
 
 export default function Navbar() {
     const { categories, setCategories } = useGlobalContext();
+    const router = useRouter();
+
     const toggleSetCategory = (newCategory: string | null) => {
+        console.log('redirecting')
         if (newCategory === null ) {
+            console.log('null')
             setCategories([])
+            router.push('/')
             return
         }
         if(categories.length === 0){
@@ -19,14 +24,7 @@ export default function Navbar() {
             categories.splice(categories.indexOf(newCategory), 1)
             setCategories([...categories])
         }
-
-
-
-    }
-
-    const isCategoryActive = (category: string) => {
-        const isActive = (categories.indexOf(category) !== -1)
-        return isActive ? true : false;
+        router.push('/')
     }
 
     return (<header className="flex flex-col sm:flex-row

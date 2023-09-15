@@ -17,7 +17,6 @@ export async function getProjects(): Promise<Project[]>{
 }
 
 export async function getProject({slug}: {slug: string}):  Promise<Project>{
-    console.log(slug)
     return client.fetch(
         groq`*[_type == "project" && slug.current == $slug][0]{
             _id,
@@ -25,6 +24,10 @@ export async function getProject({slug}: {slug: string}):  Promise<Project>{
             name,
             "slug": slug.current,
             "image": image.asset->url,
+            "imageHeader": imageHeader.asset->url,
+            client,
+            categories,
+            description,
             projectType,
             url,
             content
