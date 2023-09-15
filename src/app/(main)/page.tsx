@@ -1,5 +1,3 @@
-
-import Link from "next/link"
 import { getProjects } from "../../../sanity/lib/sanity-utils"
 import { MasonryProjects } from "./components/MasonryProjects"
 import {MarqueeFooter} from "./components/MarqueeFooter"
