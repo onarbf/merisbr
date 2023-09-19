@@ -13,5 +13,5 @@ export type Project = {
     url: string,
     content: PortableTextBlock[]
     projectType: string[]
-    
+    highlighted: boolean
 }

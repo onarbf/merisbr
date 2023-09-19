@@ -8,6 +8,7 @@ export async function getProjects(): Promise<Project[]>{
             _id,
             _createdAt,
             name,
+            url,
             "slug": slug.current,
             "image": image.asset->url,
             "imageHeader": imageHeader.asset->url,
@@ -16,7 +17,8 @@ export async function getProjects(): Promise<Project[]>{
             description,
             projectType,
             url,
-            content
+            content,
+            highlighted
 
         }`,{cache: 'force-cache'}
     )
@@ -28,6 +30,7 @@ export async function getProject({slug}: {slug: string}):  Promise<Project>{
             _id,
             _createdAt,
             name,
+            url,
             "slug": slug.current,
             "image": image.asset->url,
             "imageHeader": imageHeader.asset->url,
@@ -36,7 +39,8 @@ export async function getProject({slug}: {slug: string}):  Promise<Project>{
             description,
             projectType,
             url,
-            content
+            content,
+            highlighted
 
         }`,{slug,cache: 'force-cache'}
     )
