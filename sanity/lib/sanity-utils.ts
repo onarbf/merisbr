@@ -12,10 +12,10 @@ export async function getProjects(): Promise<Project[]>{
             "slug": slug.current,
             "image": image.asset->url,
             "imageHeader": imageHeader.asset->url,
+            "projectType": projectType[][0]->name,
             client,
             categories,
             description,
-            projectType,
             url,
             content,
             highlighted
@@ -37,7 +37,7 @@ export async function getProject({slug}: {slug: string}):  Promise<Project>{
             client,
             categories,
             description,
-            projectType,
+            "projectType": projectType[][0]->name,
             url,
             content,
             highlighted

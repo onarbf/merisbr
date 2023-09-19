@@ -15,8 +15,8 @@ const project = {
         {
           name: "description",
           title: 'Description',
-          type: 'string',
-          validation: (Rule: any) => Rule.required().min(10).max(80)
+          description: 'Add here a description to this project (Optional, but recommended)',
+          type: 'text'
         },
         {
           name: "client",
@@ -39,19 +39,14 @@ const project = {
           name:"projectType",
           title: 'Project type',
           type: 'array',
-          of: [{
-            title: "Type of Project",
-            description: "Pick the format  or formats of your project",
-            name: "type",
-            type: "string",
-            options: {
-              list: [
-                { title: "Illustration", value: "Illustration" },
-                { title: "Motion", value: "Motion" },
-              ],
-            },
-            validation: (Rule: any) => Rule.required(),
-          }]
+          of: [
+            {
+              title:'Type of the project',
+              name: "type",
+              type: 'reference',
+              to: [{type:'category'}],
+            }
+        ]
         },
         {
             name: "slug",

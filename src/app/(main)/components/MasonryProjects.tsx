@@ -27,7 +27,6 @@ export function MasonryProjects({ projects }: { projects: Project[] }) {
         },
     }
     useEffect(()=>{
-        console.log('categories',categories)
         setAnimationKey((prevKey) => prevKey + 1);
     },[categories])
 

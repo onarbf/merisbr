@@ -10,7 +10,6 @@ export default function Navbar() {
 
     const toggleSetCategory = (newCategory: string | null) => {
         if (newCategory === null) {
-            console.log('null')
             setCategories([])
             router.push('/')
             return
