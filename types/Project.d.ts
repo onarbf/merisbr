@@ -9,7 +9,7 @@ export type Project = {
     categories: string[],
     description: string,
     image: string,
-    imageHeader: string,
+    header: PortableTextBlock[],
     url: string,
     content: PortableTextBlock[]
     projectType: string[]

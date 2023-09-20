@@ -69,15 +69,37 @@ const project = {
             validation: (Rule: any) => Rule.required()
         },
         {
-          name: 'imageHeader',
-          title: 'Image header',
-          type: 'image',
-          options: {hotspot: 'true'},
-          fields: [
-              {name:'alt',
-              title: 'Alt',
-          type: 'string'}
-          ]
+          name:'header',
+          title: 'Header',
+          description: "You need to choose here one video or image to have it as a header of the post",
+          type: 'array',
+          of: [
+            {
+              type: 'image',
+              fields: [
+                {
+                  type: 'text',
+                  name: 'alt',
+                  title: 'Alternative text',
+                  description: `Some of your visitors cannot see images, 
+                    be they blind, color-blind, low-sighted; 
+                    alternative text is of great help for those 
+                    people that can rely on it to have a good idea of 
+                    what\'s on your page.`,
+                  options: {
+                    isHighlighted: true
+                  }
+                }
+              ]
+            },
+              {
+                type: 'vimeo'
+              },
+              {
+                type: 'youtube'
+              },
+              
+            ]
       },
         {
           name:"highlighted",

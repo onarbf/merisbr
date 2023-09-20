@@ -31,8 +31,8 @@ export function MasonryProjects({ projects }: { projects: Project[] }) {
     },[categories])
 
     const imageAnimation = {
-        visible: { opacity: 1 },
-        hidden: { opacity: 0 },
+        visible: { opacity: 1, y: 0 },
+        hidden: { opacity: 0, y:20},
     }
     return (<motion.div
         initial="hidden"

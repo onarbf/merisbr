@@ -33,7 +33,7 @@ export async function getProject({slug}: {slug: string}):  Promise<Project>{
             url,
             "slug": slug.current,
             "image": image.asset->url,
-            "imageHeader": imageHeader.asset->url,
+            header,
             client,
             categories,
             description,

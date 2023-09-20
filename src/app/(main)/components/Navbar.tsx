@@ -1,12 +1,16 @@
 'use client'
-import Link from "next/link";
 import { useGlobalContext } from "../context/store";
-import { useRouter, usePathname } from 'next/navigation';
-import { motion } from 'framer-motion';
+import { useRouter} from 'next/navigation';
+
+import { useState } from "react";
+import Image from "next/image";
+import MenuOptions from "./MenuOptions";
+
 export default function Navbar() {
     const { categories, setCategories } = useGlobalContext();
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const router = useRouter();
-    const path = usePathname();
+    
 
     const toggleSetCategory = (newCategory: string | null) => {
         if (newCategory === null) {
@@ -20,35 +24,24 @@ export default function Navbar() {
         setCategories([newCategory])
         router.push('/')
     }
-    return (<header className="flex flex-col sm:flex-row
+    return (<header className="
+        flex sm:flex-row
         top-0 left-0 sticky
-        justify-between items-center
-        py-4 px-8 bg-white border-b border-slate-600 mb-2">
+        md:justify-between
+        md:items-center
+        py-4 px-8 bg-white  mb-2">
         <span className="text-2xl cursor-pointer font-bold" onClick={() => toggleSetCategory(null)} >María Barriga</span>
-        <ul className="flex gap-4 text-xl pt-2">
-            <li className={`cursor-pointer relative`} onClick={() => toggleSetCategory('Illustration')}>
-                {categories.indexOf('Illustration') !== -1 && <motion.span layoutId="underline" className="absolute left-0 top-full block h-[1px] w-full bg-black " />}
-                <h4 className="">Illustration</h4>
-            </li>
-
-            <li className={`cursor-pointer relative`} onClick={() => toggleSetCategory('Motion')}>
-
-                {categories.indexOf('Motion') !== -1 && <motion.span layoutId="underline" className="absolute left-0 top-full block h-[1px] w-full bg-black " />}
-                <h4>Motion</h4>
-            </li>
-
-            <li  className="relative">{path === '/about' && <motion.span layoutId="underline" className="absolute left-0 top-full block h-[1px] w-full bg-black " />}
-                <Link href="/about" >
-                <h4>About</h4>
-                </Link>
-            </li>
-
-            <li  className="relative">
-            {path === '/contact' && <motion.span layoutId="underline"  className="absolute left-0 top-full block h-[1px] w-full bg-black " />}
-                <Link href="/contact" >
-                <h4>Contact</h4>
-                </Link>
-            </li>
-        </ul>
+        <div className="invisible md:visible w-0 h-0 md:w-auto md:h-auto">
+            <MenuOptions toggleSetCategory={toggleSetCategory} categories={categories}/>
+        </div>
+        <div className="visible md:invisible absolute right-0 ">
+            <div className="grow flex justify-end pr-[24px]" onClick={()=>setIsMenuOpen(!isMenuOpen)}>
+                <Image src={isMenuOpen?"/icons/cross-icon.png":"/icons/menu-icon.png"} width="32" height="32" alt="menu" />
+            </div>
+            <div >
+            {isMenuOpen?<MenuOptions toggleSetCategory={toggleSetCategory} categories={categories} isMenuOpen={isMenuOpen} />: ''}
+            </div>
+            
+        </div>
     </header>)
 }
