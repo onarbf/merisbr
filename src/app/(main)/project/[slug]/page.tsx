@@ -18,6 +18,7 @@ export default async function Project({ params }: Props) {
     const project = await getProject({ slug });
     return (
         <PageWrapper>
+            
             <div className="mx-[2vw] md:mx-[20vw] 2xl:mx-[25vw]">
                 {project.header &&  <PortableText
                         value={project.header}
