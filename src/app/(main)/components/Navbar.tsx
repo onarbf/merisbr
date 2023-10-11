@@ -11,6 +11,9 @@ export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const router = useRouter();
     
+    const handleIsMenuOpen = (value: boolean)=>{
+        setIsMenuOpen(value)
+    }
 
     const toggleSetCategory = (newCategory: string | null) => {
         if (newCategory === null) {
@@ -32,14 +35,14 @@ export default function Navbar() {
         py-4 px-8 bg-white  mb-2">
         <span className="text-2xl cursor-pointer font-bold" onClick={() => toggleSetCategory(null)} >María Barriga</span>
         <div className="invisible md:visible w-0 h-0 md:w-auto md:h-auto">
-            <MenuOptions toggleSetCategory={toggleSetCategory} categories={categories}/>
+            <MenuOptions toggleSetCategory={toggleSetCategory} categories={categories} handleIsMenuOpen={handleIsMenuOpen}/>
         </div>
         <div className="visible md:invisible absolute right-0 ">
             <div className="grow flex justify-end pr-[24px]" onClick={()=>setIsMenuOpen(!isMenuOpen)}>
                 <Image src={isMenuOpen?"/icons/cross-icon.png":"/icons/menu-icon.png"} width="32" height="32" alt="menu" />
             </div>
             <div >
-            {isMenuOpen?<MenuOptions toggleSetCategory={toggleSetCategory} categories={categories} isMenuOpen={isMenuOpen} />: ''}
+            {isMenuOpen?<MenuOptions toggleSetCategory={toggleSetCategory} categories={categories} handleIsMenuOpen={handleIsMenuOpen} />: ''}
             </div>
             
         </div>

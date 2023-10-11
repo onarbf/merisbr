@@ -54,7 +54,8 @@ const project = {
             type: 'slug',
             options: {
                 source: 'name'
-            }
+            },
+            validation: (Rule: any) => Rule.required()
         },
         {
             name: 'image',
